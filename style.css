@@ -1,0 +1,62 @@
+* {
+    padding: 0;
+    margin: 0;
+    position: relative;
+    box-sizing: border-box;
+  }
+  
+  html,
+  body {
+    height: 100%;
+  }
+  html {
+    background-color: #03031b;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+body {
+   
+}
+
+.count {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.c {
+    background-color: orangered;
+    width: 120px;
+    margin: 0 20px;
+}
+
+.head {
+    height: 100px;
+    text-align: center;
+    line-height: 100px;
+    font-family: 'Dancing Script', cursive;
+    font-size: 30px;
+    font-weight: 700;
+    background-color: #eee;
+}
+.body {
+    height: 70px;
+    text-align: center;
+    line-height: 70px;
+    font-size: 20px;
+    color: #fff;
+}
+.body::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 60px;
+    position: absolute;
+    top: 0px;
+    right: -30px;
+    background-image: url(/sourse/hoadao.PNG);
+    background-size: contain;
+    background-repeat: no-repeat;
+    right: 0px;
+}
