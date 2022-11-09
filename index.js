@@ -22,3 +22,11 @@ function newYear () {
     $('.s').innerHTML = s;
 }
 setInterval(newYear, 1000);
+if(screen.width <= 740) {
+    $('.logo').innerHTML = `
+    <p>HAPPY NEW YEAR</p>
+    <p>2023</p>
+    `;
+}
+
+console.log(screen.width)
