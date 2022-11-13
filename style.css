@@ -77,20 +77,11 @@
 }
 
 .c:hover {
-    animation: all 1s infinite alternate;
+    animation: all 1s ease-in-out alternate;
     scale: 1.3;
     -webkit-box-reflect: below 0px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(20%, transparent), to(rgba(255, 255, 255, 0.5)));
 }
 
-.c::before {
-    content: '';
-    display: block;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    background-color: transparent;
-    z-index: 4;
-}
 
 @keyframes all {
     from {
@@ -117,7 +108,6 @@
     height: 100%;
     position: absolute;
     left: 0;
-    z-index: 1;
 }
 
 .fallingLeaves {
