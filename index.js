@@ -20,13 +20,47 @@ function newYear () {
     $('.h').innerHTML = h;
     $('.m').innerHTML = m;
     $('.s').innerHTML = s;
-}
-setInterval(newYear, 1000);
-if(screen.width <= 740) {
-    $('.logo').innerHTML = `
-    <p>HAPPY NEW YEAR</p>
-    <p>2023</p>
-    `;
+    return h;
 }
 
-console.log(screen.width)
+const randomWeather = function () {
+    return Math.floor(Math.random()*2);
+
+}
+
+function setWeather() {
+    var t = randomWeather();
+    if(t == 0 ) {
+        $(".container").innerHTML = "";
+    }
+    console.log(t);
+}
+
+function setWidth() {
+    if(screen.width <= 940) {
+        $('.logo').innerHTML = `
+        <p>HAPPY NEW YEAR</p>
+        <p>2023</p>
+        `;
+    }
+}
+
+function setBgForTime() {
+    let h = newYear();
+        if(h >= 19 && h <= 24 || h >= 0 && h <= 5){
+            $(".bg-body").style.backgroundImage = "linear-gradient(#03031b,#101020 ,  rgb(92, 92, 92))";
+        }
+        else {
+            $(".bg-body").style.backgroundImage = "linear-gradient(rgb(0, 119, 255), rgb(136, 217, 255), rgb(212, 255, 219))"
+        
+        }
+}
+
+function start() {
+    setWeather();
+    setInterval(setWeather, 200000);
+    setWidth();
+    setBgForTime();
+    setInterval(newYear, 1000);
+}
+start();

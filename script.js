@@ -1,5 +1,5 @@
 'use strict';
-console.clear();
+
 // This is a prime example of what starts out as a simple project
 // and snowballs way beyond its intended size. It's a little clunky
 // reading/working on this single file, but here it is anyways :)
@@ -22,8 +22,8 @@ const IS_HIGH_END_DEVICE = (() => {
 // 8K - can restrict this if needed
 const MAX_WIDTH = 7680;
 const MAX_HEIGHT = 4320;
-const GRAVITY = 0.9; // Acceleration in px/s
-let simSpeed = 1;
+const GRAVITY = 0.8; // Acceleration in px/s
+let simSpeed = 1
 
 function getDefaultScaleFactor() {
 	if (IS_MOBILE) return 0.9;
@@ -67,7 +67,7 @@ const PI_HALF = Math.PI * 0.5;
 
 // Stage.disableHighDPI = true;
 const trailsStage = new Stage('trails-canvas');
-const mainStage = new Stage('main-canvas');console.log(mainStage)
+const mainStage = new Stage('main-canvas');
 const stages = [
 	trailsStage,
 	mainStage
@@ -161,7 +161,6 @@ const store = {
 				schemaVersion,
 				data
 			} = JSON.parse(serializedData);
-			
 			const config = this.state.config;
 			switch(schemaVersion) {
 				case '1.1':
@@ -519,11 +518,13 @@ const COLOR_CODE_INDEXES = COLOR_CODES_W_INVIS.reduce((obj, code, i) => {
 }, {});
 // Tuples is a map keys by color codes (hex) with values of { r, g, b } tuples (still just objects).
 const COLOR_TUPLES = {};
+console.log(COLOR_CODES)
 COLOR_CODES.forEach(hex => {
 	COLOR_TUPLES[hex] = {
 		r: parseInt(hex.substr(1, 2), 16),
 		g: parseInt(hex.substr(3, 2), 16),
 		b: parseInt(hex.substr(5, 2), 16),
+
 	};
 });
 
@@ -1970,7 +1971,6 @@ const BurstFlash = {
 	
 	add(x, y, radius) {
 		const instance = this._pool.pop() || this._new();
-		
 		instance.x = x;
 		instance.y = y;
 		instance.radius = radius;
@@ -1981,7 +1981,8 @@ const BurstFlash = {
 	
 	returnInstance(instance) {
 		this._pool.push(instance);
-	}
+	},
+	
 };
 
 
@@ -2296,3 +2297,4 @@ if (IS_HEADER) {
 		);
 	}, 0);
 }
+console.cleared()
