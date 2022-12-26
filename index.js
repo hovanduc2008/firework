@@ -24,7 +24,7 @@ function newYear () {
 }
 
 const randomWeather = function () {
-    return Math.floor(Math.random()*2);
+    return Math.floor(Math.random()*2 + 1);
 
 }
 
