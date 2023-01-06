@@ -5,11 +5,15 @@
     box-sizing: border-box;
   }
   
-  html,
-  body {
+html,
+body {
     height: 100%;
     
   }
+body::-webkit-scrollbar {
+    width: 0px;
+    background-color: #F5F5F5;
+} 
   html {
     background-size: contain;
     background-repeat: no-repeat;
@@ -69,26 +73,10 @@
     position: absolute;
     top: 0px;
     right: -30px;
-    background-image: url(/sourse/hoadao.PNG);
+    background-image: url(./sourse/hoadao.PNG);
     background-size: contain;
     background-repeat: no-repeat;
     right: 0px;
-}
-
-.c:hover {
-    animation: all 1s ease-in-out alternate;
-    scale: 1.3;
-    -webkit-box-reflect: below 0px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(20%, transparent), to(rgba(255, 255, 255, 0.5)));
-}
-
-
-@keyframes all {
-    from {
-        scale: 1;
-    }to {
-        scale: 1.3;
-        z-index: 5;
-    }
 }
 
 .logo {
@@ -110,7 +98,10 @@
 }
 
 .fallingLeaves {
+    width: 100%;
+    height: 100vh;
     text-align: center;
+    z-index: 10;
 }
 .fallingLeaves span {
     display: inline-block;
@@ -162,4 +153,94 @@
         opacity: 0;
         -webkit-transform: translate(100px, 740px) rotateZ(270deg);
     }
+}
+.music {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    color: rgba(0, 0, 0, 0.5);
+    margin: 6px 10px;
+}
+.music img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+.list_music {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.3);
+    top:0;
+    z-index: 11;
+}
+.list {
+    position: relative;
+    width: 400px;
+    max-height: 200px;
+    background-color: #F5F5F5;
+    overflow-y: scroll;
+    margin-bottom: -100px;
+}
+.x_music {
+    width: 440px;
+    background-image: linear-gradient(to top right,rgb(255, 163, 163), rgb(255, 0, 0));
+    height: 280px;
+    padding-left: 20px;
+    position: absolute;
+    margin-right: 10px;
+    border-radius: 10px;
+    right: 0;
+    bottom: 50px;
+}
+.title__list {
+    background-color: transparent;
+    height: 60px;
+    width: 400px;
+    line-height: 60px;
+    font-size: 20px;
+    font-family: 'Lobster';
+    color: rgb(209, 255, 196);
+}
+.icon_list {
+    float: left;
+    background-image: url(./sourse/chapter.png);
+    background-size: contain;
+    width: 40px;
+    height: 40px;
+    margin: 10px 10px;
+}
+.img_music, .name_music, .status_music {
+    float: left;
+}
+.name_music {
+    width: 60%;
+}
+.img_music {
+    width: 40px;
+    height: 40px;
+    margin: 5px 20px;
+    background-image: url(./sourse/download.jfif);
+    background-size: contain;
+}
+
+.list__item_music {
+    background-color: #eee;
+    height: 50px;
+    line-height: 50px;
+    border-bottom: 1px solid rgb(255, 0, 0);
+}
+.list::-webkit-scrollbar {
+    width: 0px;
+} 
+.status_music {
+
+}
+.music_play {
+    background-color: #03031b;
+    border: 1px solid #eee;
+    border-radius: 5px;
+} 
+.music_pause {
+
 }
