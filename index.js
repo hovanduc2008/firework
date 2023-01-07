@@ -1,5 +1,5 @@
 
-const countDate = new Date('jan 22, 2023 00:00:00').getTime();
+const countDate = new Date('jan 22, 2023 0:00:00').getTime();
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 const music = new Audio('./sourse/music/lienkhuc.mp3');
@@ -38,14 +38,14 @@ const app = {
     setBgForTime: function () {
         let h = this.newYear();
             if(h >= 19 && h <= 24 || h >= 0 && h <= 5){
-                $(".bg-body").style.backgroundImage = "linear-gradient(#03031b,#101020 ,  rgb(92, 92, 92))";
+                $(".bg-body").style.backgroundImage = "url(./sourse/background/background_day.jpg)";
             }
             else {
-                $(".bg-body").style.backgroundImage = "linear-gradient(rgb(0, 119, 255), rgb(136, 217, 255), rgb(212, 255, 219))"
+                $(".bg-body").style.backgroundImage = "url(./sourse/background/background_night.jpg)"
             
             }
     },
-        musicStatus: 0
+        musicStatus: 1
     ,
     playMusic: function () {
         music.play();

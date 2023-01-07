@@ -64,6 +64,10 @@ body::-webkit-scrollbar {
     color: #fff;
     font-family: 'Lobster', cursive;
 }
+.bg-body {
+    background-size: cover;
+    background-repeat: no-repeat;
+}
 .body::before {
     content: '';
     display: block;
