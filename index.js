@@ -2,10 +2,9 @@
 const countDate = new Date('jan 22, 2023 00:00:00').getTime();
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
+const music = new Audio('./sourse/music/lienkhuc.mp3');
+const playMusic = $('#music_play');
 const app = {
-    playMusic: function () {
-        music.play();
-    },
     newYear: function () {
         const now = new Date().getTime();
         
@@ -46,8 +45,33 @@ const app = {
             
             }
     },
+        musicStatus: 0
+    ,
+    playMusic: function () {
+        music.play();
+        music.loop = true;
+        playMusic.src = "./sourse/pause-button.png";
+        app.musicStatus = 1;
+    },
+    pauseMusic: function () {
+        music.pause();
+        playMusic.src = "./sourse/play.png";
+        app.musicStatus = 0;
+    },
+    handelMusic: function () {
+        let status = app.musicStatus;
+        console.log(status);
+        if(status == 0) {
+            app.playMusic();
+        }else if (status == 1) {
+            app.pauseMusic();
+        }
+    }
+    ,
     handelEvent: function() {
         setInterval(this.newYear, 1000);
+        this.handelMusic();
+        playMusic.addEventListener("click",this.handelMusic);
     }
     ,
     start: function() {

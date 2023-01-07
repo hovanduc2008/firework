@@ -7,8 +7,7 @@
   
 html,
 body {
-    height: 100%;
-    
+    height: 100vh;
   }
 body::-webkit-scrollbar {
     width: 0px;
@@ -160,6 +159,7 @@ body::-webkit-scrollbar {
     bottom: 0;
     color: rgba(0, 0, 0, 0.5);
     margin: 6px 10px;
+    z-index: 100;
 }
 .music img {
     width: 30px;
@@ -173,6 +173,7 @@ body::-webkit-scrollbar {
     background-color: rgba(0, 0, 0, 0.3);
     top:0;
     z-index: 11;
+    display:none;
 }
 .list {
     position: relative;
@@ -214,12 +215,13 @@ body::-webkit-scrollbar {
     float: left;
 }
 .name_music {
-    width: 60%;
+    width: 55%;
 }
 .img_music {
     width: 40px;
     height: 40px;
     margin: 5px 20px;
+    border-radius: 50%;
     background-image: url(./sourse/download.jfif);
     background-size: contain;
 }
@@ -230,17 +232,49 @@ body::-webkit-scrollbar {
     line-height: 50px;
     border-bottom: 1px solid rgb(255, 0, 0);
 }
-.list::-webkit-scrollbar {
-    width: 0px;
-} 
-.status_music {
+.list::-webkit-scrollbar
+{
+	width: 10px;
+	background-color: #F5F5F5;
+}
 
+.list::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	background-image: -webkit-gradient(linear,
+									   left bottom,
+									   left top,
+									   color-stop(0.44, rgb(122,153,217)),
+									   color-stop(0.72, rgb(73,125,189)),
+									   color-stop(0.86, rgb(28,58,148)));
+}.list::-webkit-scrollbar
+{
+	width: 5px;
+	background-color: #F5F5F5;
+}
+
+.list::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	background-image: -webkit-gradient(linear,
+									   left bottom,
+									   left top,
+									   color-stop(0.44, rgb(255, 98, 98)),
+									   color-stop(0.72, rgb(247, 74, 74)),
+									   color-stop(0.86, rgb(255, 186, 186)));
+}
+.status_music {
+    width: 80px;
+    text-align: center;
 }
 .music_play {
-    background-color: #03031b;
-    border: 1px solid #eee;
-    border-radius: 5px;
+    color: rgb(4, 77, 10);
 } 
 .music_pause {
-
+    color: red;
+    background-color: yellowgreen;
+    height: 30px;
+    line-height: 30px;
+    margin-top: 10px;
+    border-radius: 20px;
 }
