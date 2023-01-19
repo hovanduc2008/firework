@@ -1,3 +1,6 @@
+:root {
+    --color-text: linear-gradient(); 
+}
 * {
     padding: 0;
     margin: 0;
@@ -33,6 +36,7 @@ body::-webkit-scrollbar {
     display: flex;
     justify-content: center;
     align-items: center;
+    display: none;
 }
 
 .c {
@@ -69,6 +73,7 @@ body::-webkit-scrollbar {
 .bg-body {
     background-size: cover;
     background-repeat: no-repeat;
+    background-position: center;
 }
 .body::before {
     content: '';
@@ -78,33 +83,69 @@ body::-webkit-scrollbar {
     position: absolute;
     top: 0px;
     right: -30px;
-    background-image: url(./sourse/hoadao.PNG);
+    background-image: url(../sourse/hoadao.PNG);
     background-size: contain;
     background-repeat: no-repeat;
     right: 0px;
 }
 
 .logo {
-    font-weight: 700;
-    font-size: 50px;
-    color: #fff;
-    font-family: 'Lobster', cursive;
     text-align: center;
-    height: 200px;
-    line-height: 200px;
+    overflow:unset;
 }
-
-.container {
-    top: -220px;
+.logo svg {
     width: 100%;
-    height: 100%;
+    height: 70%;
+    line-height: normal;
+    margin: 0;
+    padding: 0;
+}
+.logo path {
+    fill: transparent;
+    stroke-width: 40;
+    stroke: #eee;
+    stroke-dasharray: 17535;
+    stroke-dashoffset: 0;
+    animation: animation-slide 5s linear forwards;
+}
+@keyframes animation-slide {
+    0%
+    {
+        stroke-dashoffset: 0;
+    }
+    20% {
+        stroke: #ff0000;
+    }
+    40%
+    {
+        stroke-dashoffset: 17535;
+        stroke: #ffa8a8;
+    }
+    60%{
+        stroke: rgb(251, 255, 0);
+    }
+    80%
+    {
+       
+        fill: transparent;
+    }
+    100%
+    {
+        stroke-dashoffset: 35070;
+        fill: #eee;
+    }
+}
+.container {
+    top: -350px;
+    width: 100%;
+    height: calc(100vh + 350px);
     position: absolute;
     left: 0;
 }
 
 .fallingLeaves {
     width: 100%;
-    height: 100vh;
+    height: calc(100vh + 350px);
     text-align: center;
     z-index: 10;
     margin-bottom: -1000px;
@@ -113,7 +154,7 @@ body::-webkit-scrollbar {
     display: inline-block;
     width: 40px;
     height: 40px;
-    background-image: url(./sourse/dao.png);
+    background-image: url(../sourse/dao.png);
     background-size: contain;
     background-repeat: no-repeat;
     margin: 0px 70px 60px -40px;
@@ -153,11 +194,11 @@ body::-webkit-scrollbar {
     }
     75% {
         opacity: 1;
-        -webkit-transform: translate(100px, 720px) rotateZ(270deg);
+        -webkit-transform: translate(100px, 920px) rotateZ(270deg);
     }
     100% {
         opacity: 0;
-        -webkit-transform: translate(100px, 740px) rotateZ(270deg);
+        -webkit-transform: translate(100px, 900px) rotateZ(270deg);
     }
 }
 .music {
@@ -212,7 +253,7 @@ body::-webkit-scrollbar {
 }
 .icon_list {
     float: left;
-    background-image: url(./sourse/chapter.png);
+    background-image: url(../sourse/chapter.png);
     background-size: contain;
     width: 40px;
     height: 40px;
@@ -229,7 +270,7 @@ body::-webkit-scrollbar {
     height: 40px;
     margin: 5px 20px;
     border-radius: 50%;
-    background-image: url(./sourse/download.jfif);
+    background-image: url(../sourse/download.jfif);
     background-size: contain;
 }
 

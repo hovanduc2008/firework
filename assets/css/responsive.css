@@ -1,21 +1,11 @@
 /* Mobile & tablet */
 @media (max-width: 1023px) {
-    .logo {
-        height: 300px;
-        line-height: 100px;
-    }
-   
 }
 
 /* Tablet */
 @media (min-width: 740px) and (max-width: 1023px) {
     .c {
         margin: 0 13px;
-    }
-    .logo {
-        font-size: 50px;
-        height: 200px;
-        line-height: 100px;
     }
     @-webkit-keyframes fallingLeaves {
         0% {
