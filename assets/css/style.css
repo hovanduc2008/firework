@@ -273,7 +273,7 @@ body::-webkit-scrollbar {
     float: left;
 }
 .name_music {
-    width: 55%;
+    
 }
 .img_music {
     width: 40px;
@@ -324,22 +324,6 @@ body::-webkit-scrollbar {
 									   color-stop(0.44, rgb(255, 98, 98)),
 									   color-stop(0.72, rgb(247, 74, 74)),
 									   color-stop(0.86, rgb(255, 186, 186)));
-}
-.status_music {
-    width: 80px;
-    text-align: center;
-    color: #eee;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
-.music_play {
-    color: rgb(127, 235, 136);
-} 
-.music_pause {
-    background-color: rgb(80, 119, 1);
-    height: 30px;
-    line-height: 30px;
-    margin-top: 10px;
-    border-radius: 20px;
 }
 
 .controls__music {

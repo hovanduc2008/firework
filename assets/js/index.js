@@ -400,9 +400,9 @@ const app = {
     },
     render: function () {
         const htmls = this.songs.map((song, index) => {
-            var songName  = song.name;
-            if(songName.length >= 21) {
-                songName = songName.slice(0, 25) + "...";
+            var songName  = song.name + "- " + song.singer;
+            if(songName.length >= 31) {
+                songName = songName.slice(0, 32) + "...";
             }
 
           return `
