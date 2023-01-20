@@ -64,6 +64,13 @@
 }
 
 @media (max-width: 439px) {
+    .title__list {
+        font-size: 16px;
+    }
+    .x_music {
+        width: 95%;
+        overflow: hidden;
+    }
     .logo svg {
         width:90%;
         margin: 0;

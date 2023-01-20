@@ -1,5 +1,5 @@
 'use trict';
-const countDate = new Date('jan 22, 2023 0:00:00').getTime();
+const countDate = new Date('jan 22, 2023 00:00:00').getTime();
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 var audio = new Audio('./assets/sourse/music/tet_nguyen_dan/TetNguyenDan-V.Music-1444104.mp3');
@@ -11,6 +11,9 @@ const randomBtn =$('.random__song');
 const prevBtn = $('.back__song');
 const repeatBtn = $('.re__play');
 const playlist = $('.list__item_music');
+const btnList = $('#music_list');
+const btnPlay = $('#music_play')
+const closeList = $('.list_music');
 
 const app = {
     newYear: function () {
@@ -32,6 +35,18 @@ const app = {
         $('.h').innerHTML = h;
         $('.m').innerHTML = m;
         $('.s').innerHTML = s;
+        if(d <= 0) {
+          $('.day').style.display = 'none';
+          if(h <= 0) {
+            $('.hour').style.display = 'none';
+            if(m <= 0) {
+              $('.minute').style.display = 'none';
+              if(s <= 0) {
+                $('.count').style.display = 'none';
+              }
+            }
+          }
+        }
         return h;
     },
     setWidth: function () {
@@ -392,9 +407,9 @@ const app = {
 
           return `
     
-                    <div class="list__item_music" title = "${songName +"- "+ song.singer}" ${
-                        index === this.currentIndex ? "active" : ""
-                            }" data-index="${index}"
+                    <div class="list__item_music ${
+                      index === this.currentIndex ? "active_song" : ""
+                          }" title = "${songName +"- "+ song.singer}" " data-index="${index}"
                     }>
                         <div class="img_music"
                         style = "background-image: url('${song.image}')"
@@ -402,7 +417,7 @@ const app = {
                             
                         </div>
                         <div class="name_music">${songName}</div>
-                        <div class="status_music music_play">Đang Phát</div>
+                        <div class="status_music music_play"></div>
                     </div>
                         `;
         });
@@ -419,9 +434,12 @@ const app = {
       if (this.isPlaying) {
         audio.play();
         $('.play__song img').setAttribute("src", "./assets/sourse/pause-button.png");
+          btnPlay.src = "./assets/sourse/pause-button.png";
       } else {
         audio.pause();
         $('.play__song img').setAttribute("src", "./assets/sourse/play.png");
+          btnPlay.src = "./assets/sourse/play.png";
+        
       }
     },
     loadConfig: function () {
@@ -433,16 +451,16 @@ const app = {
       audio = new Audio(`${this.currentSong.path}`);
       this.handleEvents();
     },
-    // playRandomSong: function () {
-    //   let newIndex;
-    //   do {
-    //     newIndex = Math.floor(Math.random() * this.songs.length);
-    //   } while (newIndex === this.currentIndex);
+    playRandomSong: function () {
+      let newIndex;
+      do {
+        newIndex = Math.floor(Math.random() * this.songs.length);
+      } while (newIndex === this.currentIndex);
   
-    //   this.currentIndex = newIndex;
-    //   this.loadCurrentSong();
-    // }
-    // ,
+      this.currentIndex = newIndex;
+      this.loadCurrentSong();
+    }
+    ,
     nextSong: function () {
       this.currentIndex++;
       if (this.currentIndex >= this.songs.length) {
@@ -460,18 +478,24 @@ const app = {
     handleEvents: function () {
       
       setInterval(this.newYear, 1000);
+      
+      
       const _this = this;
-      playBtn.onclick = function () {
+      function loadSong() {
         if (_this.isPlaying) {
           audio.pause();
           $('.play__song img').setAttribute("src", "./assets/sourse/play.png");
+          btnPlay.src = "./assets/sourse/play.png";
             _this.isPlaying = false;
         } else {
           audio.play();
           $('.play__song img').setAttribute("src", "./assets/sourse/pause-button.png");
+          btnPlay.src = "./assets/sourse/pause-button.png";
           _this.isPlaying = true;
         }
-      };
+      }
+      (playBtn).onclick = loadSong;
+      btnPlay.onclick = loadSong;
       audio.ontimeupdate = function () {
         if (audio.duration) {
           const progressPercent = Math.floor(
@@ -491,6 +515,7 @@ const app = {
           _this.nextSong();
         }
         audio.play();
+        _this.render();
       };
       prevBtn.onclick = function () {
         if (_this.isRandom) {
@@ -499,11 +524,13 @@ const app = {
           _this.prevSong();
         }
         audio.play();
+        _this.render();
       };
       randomBtn.onclick = function (e) {
         _this.isRandom = !_this.isRandom;
         _this.setConfig("isRandom", _this.isRandom);
         randomBtn.classList.toggle("active", _this.isRandom);
+        
       };
       repeatBtn.onclick = function (e) {
         _this.isRepeat = !_this.isRepeat;
@@ -515,10 +542,11 @@ const app = {
           audio.play();
         } else {
           nextBtn.click();
+          _this.render();
         }
       };
       playlist.onclick = function (e) {
-        const songNode = e.target.closest(".song:not(.active)");
+        const songNode = e.target.closest(".song:not(.active_song)");
   
         if (songNode || e.target.closest(".option")) {
           // Xử lý khi click vào song
@@ -536,6 +564,42 @@ const app = {
           }
         }
       };
+      btnList.onclick = function() {
+        closeList.style.display = "block";
+        $('.x_music').style.animation = "none";
+        $('.x_music').style.transform = "translateX(0px)";
+        btnPlay.style.display = "none";
+        btnList.style.display = "none";
+      }
+      
+      closeList.onclick = function() {
+        $('.x_music').style.animation = "transform_close 0.3s linear forwards";
+        setTimeout(function(){
+          (closeList).style.display = "none";
+        }, 400)
+        btnPlay.style.display = "block";
+        btnList.style.display = "block";
+        if(app.isPlaying){
+          btnPlay.src = "./assets/sourse/pause-button.png";
+        }else {
+          btnPlay.src = "./assets/sourse/play.png";
+        }
+        
+      }
+      playList.onclick = function (e) {
+        const songNode = e.target.closest(".list__item_music:not(.active)");
+        if (songNode) {
+          
+          if (songNode) {
+            _this.currentIndex = Number(songNode.dataset.index);
+            _this.loadCurrentSong();
+            _this.render();
+            app.checkStatus();
+            
+          }
+        }
+      };
+      
     },
     
     
@@ -554,4 +618,3 @@ const app = {
 }
 
 app.start();
-console.log(playlist);
