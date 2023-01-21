@@ -408,7 +408,7 @@ body::-webkit-scrollbar {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    row-gap: 40px;
+    row-gap: 30px;
     height: 100%;
     width: 100%;
   }
@@ -439,6 +439,7 @@ body::-webkit-scrollbar {
     font-weight: 500;
     font-family: 'Lobster';
     color: #333;
+    margin-bottom: 20px;
   }
   /* swiper button css */
   .nav-btn {
