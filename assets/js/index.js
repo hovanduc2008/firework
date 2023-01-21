@@ -1,5 +1,5 @@
 'use trict';
-const countDate = new Date('jan 22, 2023 00:00:00').getTime();
+const countDate = new Date('jan 21, 2023 00:00:00').getTime();
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 var audio = new Audio('./assets/sourse/music/tet_nguyen_dan/TetNguyenDan-V.Music-1444104.mp3');
