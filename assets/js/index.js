@@ -14,6 +14,7 @@ const playlist = $('.list__item_music');
 const btnList = $('#music_list');
 const btnPlay = $('#music_play')
 const closeList = $('.list_music');
+const listZodiac = $('.testi-content');
 
 const app = {
     newYear: function () {
@@ -43,6 +44,9 @@ const app = {
               $('.minute').style.display = 'none';
               if(s <= 0) {
                 $('.count').style.display = 'none';
+                  if($('.wishforTrang').style.display != "block") {
+                  $('.wishforTrang').style.display = 'block';
+                }
               }
             }
           }
@@ -184,17 +188,6 @@ const app = {
                 }
             }
         }
-    }
-    ,
-    setBgForTime: function () {
-        let h = this.newYear();
-            if(h >= 19 && h <= 24 || h >= 0 && h <= 5){
-                $(".bg-body").style.backgroundImage = "url(./assets/sourse/background/background_night.jpg)";
-            }
-            else {
-                $(".bg-body").style.backgroundImage = "url(./assets/sourse/background/background_day.jpg)"
-            
-            }
     }
     ,
     songs: [
@@ -388,6 +381,116 @@ const app = {
         },
     
       ],
+    zodiacs: [
+      {
+        name: "Mão",
+        nickname: "Welcome to 2023 🎋",
+        wish: "Happy New Year, <br> Quynh Trang",
+        image:
+          "./assets/sourse/12_con_giap/mao.jfif"
+      },
+      {
+        name: "Thìn",
+        nickname: "Trang thành công 🕴️",
+        wish: "Năm mới thành công, đạt được những dự định của bản thân. ",
+        image:
+          "./assets/sourse/12_con_giap/thin.jpg"
+      },
+      {
+        name: "Tỵ",
+        nickname: "Trang dẻo dai",
+        wish: "Dẻo dai, khéo léo vượt qua mọi thử thách trong năm mới!",
+        image:
+          "./assets/sourse/12_con_giap/ti.jpg"
+      },
+      {
+        name: "Ngọ",
+        nickname: "Trang nhanh nhẹn 🏃",
+        wish: "Làm gì cũng nhanh nhưng chắc chắn",
+        image:
+          "./assets/sourse/12_con_giap/ngo.jpg"
+      },
+      {
+        name: "Mùi",
+        nickname: "Trang hạnh phúc 😊",
+        wish: "Năm mới có nhiều điều khiến Trang luôn hạnh phúc",
+        image:
+          "./assets/sourse/12_con_giap/mui.jpg"
+      },
+      {
+        name: "Thân",
+        nickname: "Trang thông minh 🤓",
+        wish: "Năm mới càng học càng giỏi hơn!",
+        image:
+          "./assets/sourse/12_con_giap/than.jpg"
+      },
+      {
+        name: "Dậu",
+        nickname: "Trang xinh xắn 👩",
+        wish: "Siêu xinh hơn năm cũ luôn",
+        image:
+          "./assets/sourse/12_con_giap/dau.jpg"
+      },
+      {
+        name: "Tuất",
+        nickname: "Trang may mắn 🍀",
+        wish: "Năm mới có nhiều may mắn!",
+        image:
+          "./assets/sourse/12_con_giap/tuat.jpg"
+      },
+      {
+        name: "Hợi",
+        nickname: "Trang dễ thương 👼",
+        wish: "❤️❤️❤️❤️❤️❤️❤️",
+        image:
+          "./assets/sourse/12_con_giap/hoi.jpg"
+      },
+      {
+        name: "Tý",
+        nickname: "Trang thủ khoa 🎓",
+        wish: "Đậu Đại Học, Thủ Khoa <br> 'HUST'",
+        image:
+          "./assets/sourse/12_con_giap/ty.jpg"
+      },
+      {
+        name: "Sửu",
+        nickname: "Trang khỏe mạnh 💪",
+        wish: "Năm mới sức khỏe đầy mình",
+        image:
+          "./assets/sourse/12_con_giap/suu.jpg"
+      },
+      {
+        name: "Dần",
+        nickname: "Trang hiền khô à 👻",
+        wish: "Năm mới ít thức khuya hơn 🛌 <br> <a href = 'firework.html'>Tiếp Theo</a>🎇",
+        image:
+          "./assets/sourse/12_con_giap/dan.jpg"
+      },
+
+    ],
+    renderZodiac: function() {
+      const htmls = this.zodiacs.map((zodiac) => {
+      return `
+
+      <div class="slide swiper-slide">
+      <img src="${zodiac.image}" alt="" class="image" />
+      <p>
+        ${zodiac.wish}
+      </p>
+
+      <i class="bx bxs-quote-alt-left quote-icon"></i>
+
+      <div class="details">
+        <span class="name">${zodiac.name}</span>
+        <span class="nickname">${zodiac.nickname}</span>
+      </div>
+    </div>
+         `;
+    });
+    listZodiac.innerHTML = htmls.join("");
+    }
+    ,
+
     currentIndex: 0,
     isPlaying: false,
     isRandom: false,
@@ -608,11 +711,12 @@ const app = {
     
     start: function() {
         this.setWidth();
-        this.setBgForTime();
+        this.renderZodiac();
         this.loadConfig();
         this.checkStatus();
         this.defineProperties();
         this.handleEvents();
+        
         this.render();
     }
 }

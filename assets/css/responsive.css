@@ -32,6 +32,9 @@
             -webkit-transform: translate(100px, 800px) rotateZ(270deg);
         }
     }
+    .nav-btn {
+        display: none!important;
+      }
 
 }
 
@@ -59,11 +62,17 @@
         height: 100px;
         line-height: 50px;
     }
+    .nav-btn {
+        display: none!important;
+      }
     
     
 }
 
 @media (max-width: 439px) {
+    .nav-btn {
+        display: none!important;
+      }
     .title__list {
         font-size: 16px;
     }

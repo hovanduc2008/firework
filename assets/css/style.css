@@ -36,7 +36,6 @@ body::-webkit-scrollbar {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* display: none; */
 }
 
 .c {
@@ -48,6 +47,7 @@ body::-webkit-scrollbar {
     box-shadow: 1px -2px 4px 1px rgb(255, 103, 103);
     
 }
+
 
 .head {
     border-top-left-radius: 13px;
@@ -71,6 +71,7 @@ body::-webkit-scrollbar {
     font-family: 'Lobster', cursive;
 }
 .bg-body {
+    background-image: url(../sourse/background/background_day.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -221,7 +222,7 @@ body::-webkit-scrollbar {
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.3);
     top:0;
-    z-index: 11;
+    z-index: 1002;
     display:none;
 }
 
@@ -385,3 +386,77 @@ body::-webkit-scrollbar {
 .active_song {
     background-color: rgba(250, 250, 250, 0.3);
 }
+.wishforTrang {
+    width: 100%;
+    z-index: 100;
+    display: none;
+}
+.testimonial {
+    position: relative;
+    width: 100%;
+    padding: 0px 0;
+    overflow: hidden;
+  }
+  .testimonial .image {
+    height: 137px;
+    width: 137px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  .testimonial .slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    row-gap: 40px;
+    height: 100%;
+    width: 100%;
+  }
+  .slide p {
+    text-align: center;
+    padding: 0 160px;
+    font-size: 23px;
+    font-weight: 500;
+    color: #333;
+  }
+  .slide .quote-icon {
+    font-size: 30px;
+    color: #4070f4;
+  }
+  .slide .details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .details .name {
+    font-size: 45px;
+    font-weight: 600;
+    color: #333;
+    font-family: 'Courier New', Courier, monospace;
+  }
+  .details .nickname {
+    font-size: 15px;
+    font-weight: 500;
+    font-family: 'Lobster';
+    color: #333;
+  }
+  /* swiper button css */
+  .nav-btn {
+    height: 40px;
+    width: 40px;
+    margin: 0 40px;
+  }
+  
+  .nav-btn::after,
+  .nav-btn::before {
+    font-size: 20px;
+    color: #fff;
+  }
+  @media screen and (max-width: 768px) {
+    .slide p {
+      padding: 0 20px;
+    }
+    .nav-btn {
+      display: none;
+    }
+  }

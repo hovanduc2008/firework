@@ -2104,21 +2104,21 @@ const soundManager = {
 	sources: {
 		lift: {
 			volume: 1,
-			playbackRateMin: 0.85,
-			playbackRateMax: 0.95,
+			playbackRateMin: 0.95,
+			playbackRateMax: 1.4,
 			fileNames: [
 				'https://s3-us-west-2.amazonaws.com/s.cdpn.io/329180/lift1.mp3',
 				'https://s3-us-west-2.amazonaws.com/s.cdpn.io/329180/lift2.mp3',
 				'https://s3-us-west-2.amazonaws.com/s.cdpn.io/329180/lift3.mp3',
-				'./sourse/2ss.mp3',
-				'./sourse/2s_Trim.mp3',
+				'./assets/sourse/2ss.mp3',
+				'./assets/sourse/2s_Trim.mp3',
 				
 			]
 		},
 		burst: {
 			volume: 1,
-			playbackRateMin: 0.8,
-			playbackRateMax: 0.9,
+			playbackRateMin: 0.9,
+			playbackRateMax: 1.2,
 			fileNames: [
 				'https://s3-us-west-2.amazonaws.com/s.cdpn.io/329180/burst1.mp3',
 				'https://s3-us-west-2.amazonaws.com/s.cdpn.io/329180/burst2.mp3'
