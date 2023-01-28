@@ -704,11 +704,7 @@ const app = {
       };
       
     },
-    
-    
-    
-    
-    
+
     start: function() {
         this.setWidth();
         this.renderZodiac();
