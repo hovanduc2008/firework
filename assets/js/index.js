@@ -448,7 +448,7 @@ const app = {
       {
         name: "Tý",
         nickname: "Trang thủ khoa 🎓",
-        wish: "Đậu Đại Học, Thủ Khoa <br> 'HUST'",
+        wish: "Đậu Đại Học, Thủ Khoa <br> 'UEB'",
         image:
           "./assets/sourse/12_con_giap/ty.jpg"
       },
